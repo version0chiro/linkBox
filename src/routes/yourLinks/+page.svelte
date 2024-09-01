@@ -1,5 +1,5 @@
 <script>
-    import { getMockLinkBoxes } from "$lib/links/fetchLinks";
+    import { getMockLinkBoxes } from "$lib/api/links/fetchLinks";
     import Linkbox from "$lib/components/linkboxes/Linkbox.svelte";
     const linkBoxes = getMockLinkBoxes();
 </script>
