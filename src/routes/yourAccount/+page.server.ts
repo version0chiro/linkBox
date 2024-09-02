@@ -9,8 +9,10 @@ export const actions = {
         // cookies.set('pb_auth', authData.token, { path: '/' });
     },
     test: async ({ request, locals }) => {
+        const testData = await locals.pb.collection('linkboxes').getFullList({
+            sort: '-created',
+        });
 
-        checkAuth()
-        console.log('test')
+        console.log(testData)
     }
 };
