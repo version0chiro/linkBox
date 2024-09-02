@@ -1,6 +1,7 @@
 <script>
     import LoginForm from "$lib/components/common/LoginForm.svelte";
     import { checkAuth } from "$lib/api/utils/pb";
+    import TestForm from "$lib/components/common/TestForm.svelte";
 </script>
 
 <div class="flex flex-col">
@@ -13,6 +14,7 @@
         </div>
     </div>
     <LoginForm />
+    <TestForm />
 
     <button class="p-10 bg-slate-200" on:click={checkAuth}> Click me!</button>
 </div>
