@@ -6,19 +6,14 @@ export const createInstance = () => {
     return pb;
 }
 
+const adminLogin = async () => {
+    
+}
+
 export const login = async () => {
     const pb = createInstance();
 
     const authData = await pb.admins.authWithPassword('sachinsinghbhadoriya1@gmail.com', 'Sachin@123#');
-
-    console.log('authData', pb.authStore.isAdmin)
-    console.log('authData', pb.authStore.isValid)
-
-    const records = await pb.collection('linkboxes').getFullList({
-        sort: '-created',
-    });
-
-    console.log(records)
 
     return authData;
 }
