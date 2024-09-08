@@ -1,3 +1,5 @@
+import { createInstance } from "../utils/pb";
+
 const getMockLinks = () => {
     return [
         {
@@ -31,7 +33,7 @@ const getMockLinks = () => {
 export const getMockLinkBoxes = () => {
     const mockLinks = getMockLinks();
     const mockLinkBoxes = [];
-    
+
     // Generate names for the link boxes
     const boxNames = ['Favorites', 'Work', 'Social', 'Learning', 'Entertainment'];
 
@@ -42,6 +44,16 @@ export const getMockLinkBoxes = () => {
             links: mockLinks.slice(i, i + 3)
         });
     }
-    
+
     return mockLinkBoxes;
 }
+
+export const getLinkBoxesForUserID = (userID: string) => {
+    const pb = createInstance();
+    const records = pb.collection('linkBoxes').getFullList({
+        filter: `userID="${userID}"`
+    });
+    console.log(records)
+    return records;
+}
+

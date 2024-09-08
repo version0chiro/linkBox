@@ -19,7 +19,7 @@
         {#each links as link}
             <h1>
                 <a href={link.url}>
-                    {link.title}
+                    {link.name}
                 </a>
             </h1>
         {/each}
