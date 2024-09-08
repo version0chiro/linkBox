@@ -1,15 +1,32 @@
 <script>
     export let title;
     export let links;
+    export let id;
 
     import { fly } from "svelte/transition";
     let expanded = false;
+
+    function copyIdToClipboard() {
+        navigator.clipboard
+            .writeText(id)
+            .then(() => {
+                alert("ID copied to clipboard!");
+            })
+            .catch((err) => {
+                console.error("Failed to copy ID: ", err);
+            });
+    }
 </script>
 
 <div class="flex flex-col">
-    <h2 class="font-bold"> 
-        {title}
-    </h2>
+    <div class="flex flex-row justify-between">
+        <h2 class="font-bold">
+            {title}
+        </h2>
+        <h3 on:click={copyIdToClipboard} class="cursor-pointer">
+            {id}
+        </h3>
+    </div>
     <div
         class="overflow-hidden"
         in:fly={{ y: 20, duration: 500 }}

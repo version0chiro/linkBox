@@ -57,3 +57,9 @@ export const getLinkBoxesForUserID = (userID: string) => {
     return records;
 }
 
+export const getLinkBoxFromBoxID = (boxID: string) => {
+    const pb = createInstance();
+    const record = pb.collection('linkBoxes').getOne(boxID);
+    console.log(record)
+    return record;
+}

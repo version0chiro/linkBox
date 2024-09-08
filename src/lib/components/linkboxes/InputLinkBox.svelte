@@ -24,16 +24,23 @@
     }
 
     // Function to handle form submission (example logging to console)
-    function handleSubmit() {
-        console.log(links, user.username);
-        pushLinkBoxForUserID(boxName, links, user.username);
+    async function handleSubmit() {
+        try {
+            // Send the data to your API
+            await pushLinkBoxForUserID(boxName, links, user.username);
+            
+            // Reload the page after successful submission
+            location.reload();
+        } catch (error) {
+            console.error("Error submitting the form:", error);
+        }
     }
 </script>
 
 <!-- Form with box name and dynamic link inputs -->
 <form
     on:submit|preventDefault={handleSubmit}
-    class="max-w-lg mx-auto p-4 bg-white rounded-lg shadow-md"
+    class="max-w-lg mx-auto p-4 bg-white rounded-lg shadow-md border-black border-2"
 >
     <div class="mb-4">
         <label for="boxName" class="block text-gray-700 font-bold mb-2"

@@ -9,16 +9,16 @@
     export let data;
 
     const linkBoxes = data.state.linkBoxes;
-    console.log(linkBoxes)
+    console.log(linkBoxes);
 </script>
 
 <div class="p-2">
+    <InputLinkBox user={data.state.user} />
     {#each linkBoxes as linkBox}
         <div class="bg-slate-100 p-5">
             <h2>
-                <Linkbox title={linkBox.title} links={linkBox.links} />
+                <Linkbox id={linkBox.id} title={linkBox.title} links={linkBox.links}  />
             </h2>
         </div>
     {/each}
-    <InputLinkBox user={data.state.user} />
 </div>
